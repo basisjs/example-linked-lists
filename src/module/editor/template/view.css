@@ -1,0 +1,18 @@
+.editor
+{
+  overflow: hidden;
+  padding: 10px;
+}
+.input
+{
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 150%;
+}
+.rollback-button
+{
+	margin-top: .5em;
+	float: right;
+	padding: 8px;
+	font-size: 120%;
+}

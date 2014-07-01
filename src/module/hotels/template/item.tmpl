@@ -1,0 +1,8 @@
+<b:isolate/>
+<b:style src="./item.css"/>
+<b:define name="selected" type="bool"/>
+
+<div class="item item_{selected}" event-click="select">
+  <span b:show="{modified}" class="modified_marker modified_marker_{selected}"/>
+  {title}
+</div>

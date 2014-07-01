@@ -1,0 +1,15 @@
+<b:isolate/>
+<b:style src="./list.css" />
+
+<div b:show="{hasRegion}" class="list-wrapper">
+  <h2>{l10n:header}</h2>
+  <div class="list">
+    <!--{childNodesHere}-->
+    <div class="loading loading_{childNodesState}">
+      <span class="loading__content">{l10n:loading}</span>
+    </div>
+    <div class="error error_{childNodesState}">
+      <span class="error__content">{errorMsg}</span>
+    </div>
+  </div>
+</div>

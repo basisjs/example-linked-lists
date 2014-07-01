@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "type": {
+      "hotel": "plural"
+    }
+  },
+  "en-US": {
+    "hotel": [
+      "hotel",
+      "hotels"
+    ]
+  }
+}

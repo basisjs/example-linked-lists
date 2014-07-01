@@ -1,0 +1,29 @@
+.item
+{
+  position: relative;
+  display: block;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: -1px;
+  transition: color .15s, background-color .15s, border-color .15s;
+}
+.item:first-child
+{
+  margin-top: -1px;
+}
+.item:hover
+{
+  background: #F4F4F4;
+  transition: none;
+}
+.item_selected,
+.item_selected:hover
+{
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+  position: relative;
+  z-index: 10;
+}

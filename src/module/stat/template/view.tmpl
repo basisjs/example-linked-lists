@@ -1,0 +1,7 @@
+<b:style src="./view.css"/>
+<b:define name="count" type="bool"/>
+
+<div class="view view_{count}">
+  <div b:show="{count}">Changed {count} {l10n:hotel.{count}}</div>
+  <div b:hide="{count}">No changed hotels</div>
+</div>

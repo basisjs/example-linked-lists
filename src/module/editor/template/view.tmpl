@@ -1,0 +1,10 @@
+<b:style src="./view.css"/>
+
+<div b:show="{hasHotel}" class="editor">
+  <h2>{l10n:header}</h2>
+  
+  <input class="input" value="{name}" event-change="change" event-input="change"/>
+  <button class="rollback-button" disabled="{nonModified}" event-click="rollback">
+    {l10n:rollback}
+  </button>
+</div>

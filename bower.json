@@ -1,0 +1,6 @@
+{
+  "name": "My app",
+  "dependencies": {
+    "basisjs": "1.3.0"
+  }
+}

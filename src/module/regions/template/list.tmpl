@@ -1,0 +1,16 @@
+<b:isolate/>
+<b:style src="./list.css" />
+<b:define name="childNodesState" type="enum" values="processing error"/>
+
+<div class="list-wrapper">
+  <h2>{l10n:header}</h2>
+  <div class="list">
+    <!--{childNodesHere}-->
+    <div class="loading loading_{childNodesState}">
+      <span class="loading__content">loading...</span>
+    </div>
+    <div class="error error_{childNodesState}">
+      <span class="error__content">{errorMsg}</span>
+    </div>
+  </div>
+</div>
