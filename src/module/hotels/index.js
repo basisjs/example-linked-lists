@@ -34,7 +34,6 @@ module.exports = new Node({
   childClass: {
     template: resource('./template/item.tmpl'),
     binding: {
-      id: 'data:',
       name: 'data:',
       modified: Value
         .factory('targetChanged', 'target')

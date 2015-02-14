@@ -1,0 +1,12 @@
+{
+  "name": "linked-lists",
+  "title": "linked-lists",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lahmatiy/linked-lists.git"
+  },
+  "devDependencies": {
+    "basisjs-tools": "basisjs/basisjs-tools"
+  }
+}

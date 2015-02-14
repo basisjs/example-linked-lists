@@ -6,7 +6,7 @@ module.exports = require('basis.app').create({
   title: 'Linked list app example',
 
   init: function(){
-  	var regions = require('./module/regions/index.js');
+    var regions = require('./module/regions/index.js');
     var hotels = require('./module/hotels/index.js');
     var editor = require('./module/editor/index.js');
     var stat = require('./module/stat/index.js');
