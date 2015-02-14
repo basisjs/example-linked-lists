@@ -1,9 +1,9 @@
-require('basis.app');
-require('basis.ui');
-;;;require('basis.devpanel');
+var Node = require('basis.ui').Node;
+var Value = require('basis.data').Value;
+/** @cut */ require('basis.devpanel');
 
-module.exports = basis.app.create({
-  title: 'Test solution',
+module.exports = require('basis.app').create({
+  title: 'Linked list app example',
 
   init: function(){
   	var regions = require('./module/regions/index.js');
@@ -11,10 +11,10 @@ module.exports = basis.app.create({
     var editor = require('./module/editor/index.js');
     var stat = require('./module/stat/index.js');
 
-    hotels.setDelegate(basis.data.Value.from(regions.selection, 'itemsChanged', 'pick()'));
-    editor.setDelegate(basis.data.Value.from(hotels.selection, 'itemsChanged', 'pick()'));
+    hotels.setDelegate(Value.from(regions.selection, 'itemsChanged', 'pick()'));
+    editor.setDelegate(Value.from(hotels.selection, 'itemsChanged', 'pick()'));
 
-    return new basis.ui.Node({
+    return new Node({
       template: resource('./app/template/layout.tmpl'),
       binding: {
         regions: regions,

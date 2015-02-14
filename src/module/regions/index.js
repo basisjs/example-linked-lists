@@ -12,8 +12,10 @@ module.exports = new Node({
       events: 'childNodesStateChanged',
       getter: function(node){
         if (node.childNodesState == STATE.ERROR)
+        {
           var msg = node.childNodesState.data;
           return typeof msg == 'object' ? msg.msg : String(msg);
+        }
       }
     }
   },
@@ -23,7 +25,7 @@ module.exports = new Node({
   childClass: {
     template: resource('./template/item.tmpl'),
     binding: {
-      title: 'data:name'
+      name: 'data:'
     }
   }
 });

@@ -14,15 +14,17 @@ module.exports = new Node({
     hasRegion: {
       events: 'targetChanged',
       getter: function(node){
-        return !!node.target;
+        return Boolean(node.target);
       }
     },
     errorMsg: {
       events: 'childNodesStateChanged',
       getter: function(node){
         if (node.childNodesState == STATE.ERROR)
+        {
           var msg = node.childNodesState.data;
           return typeof msg == 'object' ? msg.msg : String(msg);
+        }
       }
     }
   },
@@ -33,20 +35,12 @@ module.exports = new Node({
     template: resource('./template/item.tmpl'),
     binding: {
       id: 'data:',
-      title: 'data:name',
-      modified: {
-        events: 'targetChanged',
-        getter: function(node){
-          return node.target ? !!node.target.modified : false;
-        }
-      }
-    },
-    listen: {
-      target: {
-        rollbackUpdate: function(){
-          this.updateBind('modified');
-        }
-      }
+      name: 'data:',
+      modified: Value
+        .factory('targetChanged', 'target')
+        .pipe('rollbackUpdate', function(target){
+          return target ? Boolean(target.modified) : false;
+        })
     }
   }
 });

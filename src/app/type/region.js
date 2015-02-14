@@ -11,10 +11,9 @@ var Region = entity.createType('Region', {
 });
 
 Region.all.setSyncAction(service.createAction({
-  url: '/data/regions/all',
+  url: '/data/regions/all.json',
   success: function(data){
-    data = JSON.parse(data);
-    this.sync(basis.array(data).map(Region.reader));
+    this.sync(Region.readList(data));
   }
 }));
 

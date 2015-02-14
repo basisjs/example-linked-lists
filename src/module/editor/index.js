@@ -1,27 +1,19 @@
 var Node = require('basis.ui').Node;
+var Value = require('basis.data').Value;
 
 module.exports = new Node({
   template: resource('./template/view.tmpl'),
   binding: {
     name: 'data:',
-    modified: {
-      events: 'targetChanged',
-      getter: function(node){
-        return node.target ? !!node.target.modified : false;
-      }
-    },
-    nonModified: {
-      events: 'targetChanged',
-      getter: function(node){
-        return node.target ? !node.target.modified : true;
-      }
-    },
-    hasHotel: {
-      events: 'targetChanged',
-      getter: function(node){
-        return !!node.target;
-      }
-    }
+    noChanges: Value
+      .factory('targetChanged', 'target')
+      .pipe('rollbackUpdate', function(target){
+        return target ? !target.modified : true;
+      }),
+    hasTarget: Value
+      .factory('targetChanged', function(node){
+        return Boolean(node.target);
+      })
   },
   action: {
     change: function(event){
@@ -31,14 +23,6 @@ module.exports = new Node({
     rollback: function(){
       if (this.target)
         this.target.rollback();
-    }
-  },
-  listen: {
-    target: {
-      rollbackUpdate: function(){
-        this.updateBind('modified');
-        this.updateBind('nonModified');
-      }
     }
   }
 });

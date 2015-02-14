@@ -1,5 +1,7 @@
 var entity = require('basis.entity');
 var service = require('app.service');
+var KeyObjectMap = require('basis.data').KeyObjectMap;
+var Dataset = require('basis.data').Dataset;
 
 //
 // main part
@@ -11,9 +13,9 @@ var Hotel = entity.createType('Hotel', {
 });
 
 Hotel.byRegion = (function(){
-  var Hotels = basis.data.Dataset.subclass({
+  var Hotels = Dataset.subclass({
     syncAction: service.createAction({
-      url: '/data/hotels/_region_id=:regionId',
+      url: '/data/hotels/region_:regionId.json',
       request: function(){
         return {
           routerParams: {
@@ -22,13 +24,12 @@ Hotel.byRegion = (function(){
         }
       },
       success: function(data){
-        data = JSON.parse(data);
-        this.sync(basis.array(data).map(Hotel.reader).map(Hotel));
+        this.sync(Hotel.readList(data));
       }
     })
   });
 
-  var hotelsMap = new basis.data.KeyObjectMap({
+  var hotelsMap = new KeyObjectMap({
     create: function(regionId){
       return new Hotels({
         regionId: regionId

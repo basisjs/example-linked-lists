@@ -5,14 +5,15 @@
 }
 .input
 {
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   font-size: 150%;
 }
 .rollback-button
 {
-	margin-top: .5em;
 	float: right;
+  margin-top: .5em;
 	padding: 8px;
 	font-size: 120%;
 }
