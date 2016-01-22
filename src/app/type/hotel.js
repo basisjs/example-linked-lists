@@ -24,7 +24,7 @@ Hotel.byRegion = (function(){
         }
       },
       success: function(data){
-        this.sync(Hotel.readList(data));
+        this.setAndDestroyRemoved(Hotel.readList(data));
       }
     })
   });
