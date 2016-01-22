@@ -8,5 +8,12 @@
   },
   "devDependencies": {
     "basisjs-tools": "basisjs/basisjs-tools"
+  },
+  "scripts": {
+    "start": "basis server",
+    "build": "basis build"
+  },
+  "dependencies": {
+    "basisjs": "^1.6.1"
   }
 }

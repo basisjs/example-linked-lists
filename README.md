@@ -9,7 +9,7 @@ Clone repo and install dependencies by `bower`.
 Use any web-server to launch application. But [`basisjs-tools`](https://github.com/basisjs/basisjs-tools) dev-server would be preferred.
 
     > npm install
-    > node ./node_modules/basisjs-tools/bin/basis server
+    > npm start
 
 Or, if `basisjs-tools` globaly installed:
 

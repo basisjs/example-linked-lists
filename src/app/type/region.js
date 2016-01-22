@@ -13,7 +13,7 @@ var Region = entity.createType('Region', {
 Region.all.setSyncAction(service.createAction({
   url: '/data/regions/all.json',
   success: function(data){
-    this.sync(Region.readList(data));
+    this.setAndDestroyRemoved(Region.readList(data));
   }
 }));
 
